@@ -1,6 +1,6 @@
 from typing import Dict, List, Optional
 
-from aoc.y2023.d02.inputs import INPUTS
+from aoc.y2023.d03.inputs import INPUTS
 
 _year = 2023
 _label = "Day 03"
