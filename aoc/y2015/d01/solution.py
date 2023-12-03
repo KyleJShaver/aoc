@@ -13,11 +13,11 @@ def part01(input: str):
 def part02(input: str):
     queue = [0]
     for instruction in input:
-        queue.append(queue[-1]+1)
+        queue.append(queue[-1] + 1)
         if instruction == ")":
             if len(queue) == 2:
                 return queue[-1]
-            queue = queue[2:]                
+            queue = queue[2:]
 
 
 def run():
