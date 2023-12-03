@@ -12,7 +12,8 @@ INPUTS = Inputs(
 """,
     part01="""
 """,
-)'''
+)
+'''
 )
 
 solution_template: Template = Template(
