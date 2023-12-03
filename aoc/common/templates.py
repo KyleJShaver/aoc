@@ -26,11 +26,11 @@ _label = "Day $day"
 
 
 def part01(input: str):
-    return input
+    return 0
 
 
 def part02(input: str):
-    return input
+    return 0
 
 
 def run():
@@ -68,7 +68,7 @@ def new_files(root: str, year: int, day: int):
 
 
 if __name__ == "__main__":
-    year = 2023
+    year = 2015
     day = 3
     if len(sys.argv) == 3:
         year = int(sys.argv[1])
