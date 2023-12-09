@@ -5,32 +5,32 @@ from aoc.y2023.d09.inputs import INPUTS
 _year = 2023
 _label = "Day 09"
 
-def next(history):
+def calc_diffs(history):
     diffs = list()
     for i in range(len(history)-1):
         diffs.append(history[i+1] - history[i])
+    return diffs
+
+def next(history):
+    diffs = calc_diffs(history)
     if len(set(diffs)) == 1:
         return diffs[0] + history[-1]
     return next(diffs) + history[-1]
 
 def prev(history):
-    diffs = list()
-    for i in range(len(history)-1):
-        diffs.append(history[i+1] - history[i])
+    diffs = calc_diffs(history)
     if len(set(diffs)) == 1:
         return history[0] - diffs[0]
     return history[0] - prev(diffs)
 
-def part01(input: str):
+def part01(input: str, extrapolation_func = next):
     histories = [[int(hist) for hist in history.split()] for history in input.splitlines()]
-    nexts = [next(h) for h in histories]
-    return sum(nexts)
+    extrapolated = [extrapolation_func(h) for h in histories]
+    return sum(extrapolated)
 
 
 def part02(input: str):
-    histories = [[int(hist) for hist in history.split()] for history in input.splitlines()]
-    prevs = [prev(h) for h in histories]
-    return sum(prevs)
+    return part01(input, prev)
 
 
 def run():
